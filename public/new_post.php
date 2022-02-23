@@ -1,8 +1,8 @@
 <?php
+    include('../bootstrap.php');
+    
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $path = __DIR__ . '/../database/database.sqlite';
-        $pdo = new PDO("sqlite:$path");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo = pdo();
         
         $pdo->prepare('INSERT INTO posts (title, body) VALUES (?, ?)')
             ->execute([$_POST['title'], $_POST['body']]);

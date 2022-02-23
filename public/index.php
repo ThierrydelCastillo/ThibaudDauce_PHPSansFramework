@@ -1,15 +1,14 @@
-<?php include('../header.php') ?>
-
 <?php
-    $path = __DIR__ . '/../database/database.sqlite';
-    $pdo = new PDO("sqlite:$path");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include('../bootstrap.php');
+    $pdo = pdo();
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
     $query = $pdo->prepare('SELECT * FROM posts');
     $result = $query->execute();
     $posts = $query->fetchAll();
 ?>
+
+<?php include('../header.php') ?>
 
 <h1>Page d'accueil</h1>
 
