@@ -12,7 +12,7 @@
     }
 ?>
 
-<?php include('../header.php') ?>
+<?php html_partial('header') ?>
 
 <h1>Ecrire un nouvel article</h1>
 
@@ -29,4 +29,4 @@
     </p>
 </form>
 
-<?php include('../footer.php') ?>
+<?php html_partial('footer') ?>

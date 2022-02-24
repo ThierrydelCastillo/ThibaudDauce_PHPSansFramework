@@ -8,7 +8,7 @@
     $posts = $query->fetchAll();
 ?>
 
-<?php include('../header.php') ?>
+<?php html_partial('header') ?>
 
 <h1>Page d'accueil</h1>
 
@@ -21,4 +21,4 @@
     <a href="/new_post.php">Ecrire un nouvel article</a>
 </p>
 
-<?php include('../footer.php') ?>
+<?php html_partial('footer') ?>

@@ -9,3 +9,7 @@ function pdo() {
 
     return $pdo;
 }
+
+function html_partial($name){
+    require(__DIR__ . "../html_partials/$name.php");
+}
