@@ -6,9 +6,10 @@
         
         $pdo->prepare('INSERT INTO posts (title, body) VALUES (?, ?)')
             ->execute([$_POST['title'], $_POST['body']]);
-            
-        var_dump($_POST);
-        die;
+        $id = $pdo->lastInsertId();
+        
+        header("Location: /post.php?id=$id");
+        die();  // pour etre sur que rien ne s'affiche avant le redirection
     }
 ?>
 

@@ -1,8 +1,8 @@
 <?php
-include('../bootstrap.php');
+require_once(__DIR__ . '/../bootstrap.php');
 
-$pdo = pdo();
 if(file_exists(SQLITE_DATABASE_PATH)) unlink(SQLITE_DATABASE_PATH); // Efface le fichier database
+$pdo = pdo();
 
 $query = $pdo->prepare('
         CREATE TABLE posts(
