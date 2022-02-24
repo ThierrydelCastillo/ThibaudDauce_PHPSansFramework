@@ -14,7 +14,7 @@
 
 <ul>
     <?php foreach($posts as $post): ?>
-        <li><?= $post['title']?></li>
+        <li><a href="/post.php?id=<?= $post['id'] ?>"><?= $post['title']?></a></li>
     <?php endforeach ?>
 </ul>
 <p>
