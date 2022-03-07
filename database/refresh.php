@@ -11,5 +11,14 @@ $query = $pdo->prepare('
             body TEXT NOT NULL
         )
     ');
+$query->execute();
 
+$query = $pdo->prepare('
+        CREATE TABLE comments(
+            id INTEGER PRIMARY KEY,
+            post_id INTEGER NOT NULL,
+            author VARCHAR(255) NOT NULL,
+            body TEXT NOT NULL
+        )
+    ');
 $query->execute();
