@@ -13,7 +13,7 @@
 
     $query = $pdo->prepare('SELECT * FROM posts WHERE id = ?');
     $query->execute([$id]);
-
+    
     $post = $query->fetch();
 
     if($post === false) {
@@ -21,6 +21,10 @@
         html_partial('404');
         die();
     }
+
+    $query = $pdo->prepare('SELECT * FROM comments WHERE post_id = ?');
+    $query->execute([$id]);
+    $comments = $query->fetchAll();
 ?>
 
 <?php html_partial('header') ?>
@@ -29,6 +33,12 @@
 <p><?= $post['body']?></p>
 
 <hr>
+
+<?php foreach ($comments as $comment): ?>
+    <p>
+        <strong><?= $comment['author'] ?></strong> : <?= $comment['body'] ?>
+    </p>
+<?php endforeach ?>
 
 <form action="/new_comment.php" method="post">
     <input type="hidden" name="post_id" value="<?=$post['id'] ?>">

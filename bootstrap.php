@@ -13,3 +13,9 @@ function pdo() {
 function html_partial($name){
     require(__DIR__ . "../html_partials/$name.php");
 }
+
+function dd($variable) {
+    echo "<pre>";
+    print_r($variable);
+    echo "</pre>";
+}
